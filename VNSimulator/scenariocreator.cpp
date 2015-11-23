@@ -26,10 +26,6 @@ void Scenariocreator::createScenariosFromXML()
 		poolingValueVectors(allVecs);
 		cartesianProduct(allVecs, solutionVecs, 0, emptyVec);
 
-		for (scenario=0; scenario<solutionVecs.size(); scenario++)
-		{
-			//TODO
-		}
 
 
 	}
