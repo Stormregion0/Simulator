@@ -1,10 +1,27 @@
 #include <iostream>                                     // Ein- und Ausgabebibliothek
+#include <string>
+#include "scenariocreator.hpp"
 
+int main(int argc, char *argv[]){                                             // Hauptfunktion
 
-int main(){                                             // Hauptfunktion
+    std::cout << "Anzahl Argumente: " << argc <<std::endl;
 
-    std::cout << "Hallo, du schöne Welt!" << std::endl; // Ausgabe
+    if(argc>3)
+    {
+    	std::string inputname;
 
+    	inputname=argv[1];
+    	std::cout << "Größer als drei!"<< std::endl;
+
+    	Scenariocreator s;
+    	s.generateScenario();
+    	s.createScenariosFromXML();
+
+    }
+    else
+    {
+    	std::cout << "kleiner als drei"<< std::endl;
+    }
 
     return 0;                                           // Optionale Rückgabe an das Betriebssystem
 
