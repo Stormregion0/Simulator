@@ -9,7 +9,7 @@
 #define SCENARIOCREATOR_HPP_
 #include <vector>
 #include <string>
-#include "pugixml.hpp"
+#include "../pugixml.hpp"
 // in myclass.h
 
 

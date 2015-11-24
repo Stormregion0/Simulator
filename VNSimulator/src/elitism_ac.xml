@@ -1,0 +1,204 @@
+<?xml version="1.0"?>
+<scenarios>
+ <physicalnet>
+  <topology type="random">
+   <nodes>50</nodes>
+   <probability>0.5</probability>
+   <minX>0</minX>
+   <maxX>25</maxX>
+   <minY>0</minY>
+   <maxY>25</maxY>
+  </topology>
+   <data>
+   <parameter name="mincpu">
+    <from>50</from>
+    <to>50</to>
+    <step>1</step>
+   </parameter>
+   <parameter name="maxcpu">
+    <from>100</from>
+    <to>100</to>
+    <step>10</step>
+   </parameter>
+   <parameter name="minmem">
+    <from>50</from>
+    <to>50</to>
+    <step>1</step>
+   </parameter>
+   <parameter name="maxmem">
+    <from>100</from>
+    <to>100</to>
+    <step>10</step>
+   </parameter>
+   <parameter name="minbw">
+    <from>50</from>
+    <to>50</to>
+    <step>10</step>
+   </parameter>
+   <parameter name="maxbw">
+    <from>100</from>
+    <to>100</to>
+    <step>10</step>
+   </parameter>
+   <parameter name="mindelay">
+    <from>0</from>
+    <to>0</to>
+    <step>10</step>
+   </parameter>
+   <parameter name="maxdelay">
+    <from>1</from>
+    <to>1</to>
+    <step>10</step>
+   </parameter>
+   </data>
+  </physicalnet>
+  <virtualnet>
+   <topology type="random">
+    <minnodes>3</minnodes>
+    <maxnodes>10</maxnodes>
+    <probability>0.5</probability>
+    </topology>
+    <data>
+       <parameter name="mincpu">
+    <from>10</from>
+    <to>10</to>
+    <step>10</step>
+   </parameter>
+   <parameter name="maxcpu">
+    <from>20</from>
+    <to>20</to>
+    <step>10</step>
+   </parameter>
+   <parameter name="minmem">
+    <from>0</from>
+    <to>0</to>
+    <step>10</step>
+   </parameter>
+   <parameter name="maxmem">
+    <from>20</from>
+    <to>20</to>
+    <step>10</step>
+   </parameter>
+   <parameter name="minbw">
+    <from>10</from>
+    <to>10</to>
+    <step>10</step>
+   </parameter>
+   <parameter name="maxbw">
+    <from>20</from>
+    <to>20</to>
+    <step>10</step>
+   </parameter>
+   <parameter name="mindelay">
+    <from>100</from>
+    <to>100</to>
+    <step>10</step>
+   </parameter>
+   <parameter name="maxdelay">
+    <from>100</from>
+    <to>100</to>
+    <step>10</step>
+   </parameter>
+      <parameter name="mindistance">
+    <from>1000000000000</from>
+    <to>1000000000000</to>
+    <step>10</step>
+   </parameter>
+   <parameter name="maxdistance">
+    <from>1000000000000</from>
+    <to>1000000000000</to>
+    <step>10</step>
+   </parameter>
+    </data>
+ </virtualnet>
+ <demands>
+<data>
+  <parameter name="number">
+   <from>2500</from>
+   <to>2500</to>
+   <step>2500</step>
+  </parameter>
+  <parameter name="lifetime">
+   <from>500</from>
+   <to>500</to>
+   <step>10</step>
+  </parameter>
+    <parameter name="avgarrival">
+   <from>20</from>
+   <to>20</to>
+   <step>1</step>
+  </parameter>
+</data>
+ </demands>
+ <algorithm method="AC">
+  <data>
+  <parameter name="alpha">
+   <from>1</from>
+   <to>1</to>
+   <step>1</step>
+  </parameter>
+  <parameter name="beta">
+   <from>2</from>
+   <to>2</to>
+   <step>1</step>
+  </parameter>
+  <parameter name="rho">
+   <from>0.5</from>
+   <to>0.5</to>
+   <step>1</step>
+  </parameter>
+  <parameter name="phi">
+   <from>10</from>
+   <to>10</to>
+   <step>1</step>
+  </parameter>
+  <parameter name="numberofiterations">
+   <from>20</from>
+   <to>20</to>
+   <step>5</step>
+  </parameter>
+  <parameter name="numberofants">
+   <from>10</from>
+   <to>10</to>
+   <step>2</step>
+  </parameter>
+  <parameter name="hops">
+   <from>5</from>
+   <to>5</to>
+   <step>1</step>
+  </parameter>
+  <parameter name="radius">
+   <from>25</from>
+   <to>25</to>
+   <step>1</step>
+  </parameter>
+  <parameter name="startpheromon">
+   <from>80</from>
+   <to>80</to>
+   <step>1</step>
+  </parameter>
+  <parameter name="minpheromon">
+   <from>0</from>
+   <to>0</to>
+   <step>1</step>
+  </parameter>
+  <parameter name="maxpheromon">
+   <from>1000</from>
+   <to>1000</to>
+   <step>1</step>
+  </parameter>
+  <parameter name="elitism">
+   <from>0.0</from>
+   <to>1.0</to>
+   <step>0.1</step>
+  </parameter>
+ </data>
+ </algorithm>
+ <seed>
+ <from>1</from>
+ <to>100</to>
+ <step>10</step>
+</seed>
+</scenarios>
+
+

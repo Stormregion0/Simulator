@@ -4,7 +4,7 @@
 
 #include <iostream>
 #include "scenariocreator.hpp"
-#include "pugixml.hpp"
+#include "../pugixml.hpp"
 #include <string>
 #include <typeinfo>
 #include <vector>
@@ -13,6 +13,23 @@
 void Scenariocreator::generateScenario()
 	{
 		std::cout << "generate Scenario" <<std::endl;
+		std::cout << "GIT TEST"<<std::endl;
+
+		if(algorithm_method=="AC")
+		{
+			std::cout << "AC wurde aktiviert"<<std::endl;
+
+		}
+		else if(algorithm_method=="GR")
+		{
+			std::cout << "GR wurde aktiviert"<<std::endl;
+
+		}
+		else
+		{
+			std::cout << "Keins von beiden"<<std::endl;
+
+		}
 	}
 
 void Scenariocreator::createScenariosFromXML()
@@ -26,6 +43,12 @@ void Scenariocreator::createScenariosFromXML()
 		poolingValueVectors(allVecs);
 		cartesianProduct(allVecs, solutionVecs, 0, emptyVec);
 
+		for(int scenario=0;scenario<solutionVecs.size(); scenario++)
+		{
+			std::cout << "GIT TEST"<<std::endl;
+		}
+
+		generateScenario();
 
 
 	}
@@ -145,7 +168,7 @@ std::vector <int> Scenariocreator::maxmintoVector(std::string netType, std::stri
 
 		while(x<=maxValue)
 		{
-			std::cout << "x: "<<x<<std::endl;
+			//std::cout << "x: "<<x<<std::endl;
 			valueVector.push_back(x);
 			x+=step;
 		}
@@ -167,7 +190,7 @@ int Scenariocreator::loadDocument()
 
 void Scenariocreator::getMethod()
 {
-	std::string algorithm_method=doc.child("scenarios").child("algorithm").attribute("method").value();
+	algorithm_method=doc.child("scenarios").child("algorithm").attribute("method").value();
 
 }
 

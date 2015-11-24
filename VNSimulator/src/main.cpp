@@ -1,6 +1,6 @@
 #include <iostream>                                     // Ein- und Ausgabebibliothek
 #include <string>
-#include "scenariocreator.hpp"
+#include "scenariocreator/scenariocreator.hpp"
 
 int main(int argc, char *argv[]){                                             // Hauptfunktion
 
