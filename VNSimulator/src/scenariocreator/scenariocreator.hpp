@@ -10,14 +10,16 @@
 #include <vector>
 #include <string>
 #include "../pugixml.hpp"
+#include "../demandcreator.hpp"
 // in myclass.h
 
 
-
+/*! generates a scenario or multiple scenarios
+*/
 class Scenariocreator
 {
 public:
-  void generateScenario();
+  void generateScenario(std::vector<int> parameters);
   void createScenariosFromXML();
   std::vector <int> getParameter(std::string netType, std::string param);
   std::vector <int> maxmintoVector(std::string netType, std::string param);

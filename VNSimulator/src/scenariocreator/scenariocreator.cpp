@@ -5,15 +5,15 @@
 #include <iostream>
 #include "scenariocreator.hpp"
 #include "../pugixml.hpp"
+#include "../demandcreator.hpp"
 #include <string>
 #include <typeinfo>
 #include <vector>
 
 
-void Scenariocreator::generateScenario()
+void Scenariocreator::generateScenario(std::vector<int> parameters)
 	{
 		std::cout << "generate Scenario" <<std::endl;
-		std::cout << "GIT TEST"<<std::endl;
 
 		if(algorithm_method=="AC")
 		{
@@ -30,10 +30,19 @@ void Scenariocreator::generateScenario()
 			std::cout << "Keins von beiden"<<std::endl;
 
 		}
+
+		Demandcreator dem_gen;
+
+		std::vector <Demand> demands=dem_gen.createConstantDemands(2);
+
+		std::cout<<"Demands[0].testdemand: "<<demands[0].testdemand<<std::endl;
+
+
 	}
 
 void Scenariocreator::createScenariosFromXML()
 	{
+		std::cout <<"createScenarioFromXML"<<std::endl;
 		int c=loadDocument();
 		getMethod();
 
@@ -43,12 +52,10 @@ void Scenariocreator::createScenariosFromXML()
 		poolingValueVectors(allVecs);
 		cartesianProduct(allVecs, solutionVecs, 0, emptyVec);
 
-		for(int scenario=0;scenario<solutionVecs.size(); scenario++)
+		for(int scenarionum=0;scenarionum<solutionVecs.size(); scenarionum++)
 		{
-			std::cout << "GIT TEST"<<std::endl;
+			generateScenario(solutionVecs[scenarionum]);
 		}
-
-		generateScenario();
 
 
 	}
@@ -56,7 +63,7 @@ void Scenariocreator::createScenariosFromXML()
 void Scenariocreator::poolingValueVectors(std::vector <std::vector <int> > &allVecs)
 {
 
-	std::cout <<"createScenario"<<std::endl;
+	std::cout <<"poolingValueVectors"<<std::endl;
 	std::vector <int> phmincpu=maxmintoVector("physicalnet", "mincpu");
 	std::vector <int> phmaxcpu=maxmintoVector("physicalnet", "maxcpu");
 	std::vector <int> phminmem=maxmintoVector("physicalnet", "minmem");
@@ -89,7 +96,6 @@ void Scenariocreator::poolingValueVectors(std::vector <std::vector <int> > &allV
 	std::vector <int> maxpheromon=maxmintoVector("algorithm", "maxpheromon");
 	//std::vector <int> importance_elitism=maxmintoVector("algorithm", "elitism");//float problem
 
-	std::cout << "Alpha" << alpha[0] <<std::endl;
 
 	//method ist private variable
 	std::vector <int> numberofdemands= maxmintoVector("demands", "number");

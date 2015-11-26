@@ -14,7 +14,6 @@ int main(int argc, char *argv[]){                                             //
     	std::cout << "Größer als drei!"<< std::endl;
 
     	Scenariocreator s;
-    	s.generateScenario();
     	s.createScenariosFromXML();
 
     }
