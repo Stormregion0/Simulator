@@ -10,7 +10,7 @@
 #include <vector>
 #include <string>
 #include "../pugixml.hpp"
-#include "../demandcreator.hpp"
+#include "../demandcreator/demandcreator.hpp"
 // in myclass.h
 
 
