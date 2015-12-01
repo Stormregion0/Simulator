@@ -14,7 +14,10 @@
 // in myclass.h
 
 
-/*! generates a scenario or multiple scenarios
+/** \brief generates a scenario or multiple scenarios
+ *  \author    Alexander Kosch
+ *  \version   0.1alpha
+ *  \date      2015
 */
 class Scenariocreator
 {

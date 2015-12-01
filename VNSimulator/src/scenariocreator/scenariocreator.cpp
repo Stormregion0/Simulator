@@ -10,7 +10,13 @@
 #include <typeinfo>
 #include <vector>
 
+/**
+	\brief generates a scenario
 
+	This function generates a scenario and returns the object.
+
+	@param[in]     parameters
+*/
 void Scenariocreator::generateScenario(std::vector<int> parameters)
 	{
 		std::cout << "generate Scenario" <<std::endl;
@@ -40,6 +46,11 @@ void Scenariocreator::generateScenario(std::vector<int> parameters)
 
 	}
 
+/**
+	\brief creates scenarios
+
+	This function creates scenarios out of xml files and starts the running process
+*/
 void Scenariocreator::createScenariosFromXML()
 	{
 		std::cout <<"createScenarioFromXML"<<std::endl;
@@ -60,6 +71,14 @@ void Scenariocreator::createScenariosFromXML()
 
 	}
 
+/**
+	\brief pools all parameter vectors into a new vector
+
+	This function pools all parameter vector into a new vector.
+	This is necessary to process the data later.
+
+	@param[out]    allVecs This is the vector were all parameter vectors are stored in
+*/
 void Scenariocreator::poolingValueVectors(std::vector <std::vector <int> > &allVecs)
 {
 
@@ -142,6 +161,19 @@ void Scenariocreator::poolingValueVectors(std::vector <std::vector <int> > &allV
 
 }
 
+/**
+	\brief This function creates a cartesian product of the input.
+
+	The function produces a cartesian product of the input.
+	The input are vectors within a vector called allVecs.
+	The solution is produced recursive and stored im emptyVec.
+	When finished this partial solution is stored in solution Vecs.
+
+	@param[in]     allVecs contains all input vectors
+	@param[out]    solutionVecs stores all solutions
+	@param[in] 	   vecIndex marks the current parameterVec which is processed
+	@param[in]     emptyVec stores the solution of the current branch
+*/
 void Scenariocreator::cartesianProduct(const std::vector<std::vector<int> > &allVecs, std::vector<std::vector<int> > &solutionVecs, size_t vecIndex, std::vector<int> emptyVec)
 {
 	//std::cout << "jup" << std::endl;
@@ -162,6 +194,13 @@ void Scenariocreator::cartesianProduct(const std::vector<std::vector<int> > &all
     }
 }
 
+/**
+	\brief generates a vector with all values from min to max with a certain step.
+
+	@param[in]     netType determines which pugichild is choosen.
+	@param[in]     param determines which value has to be parsed.
+	@return returns the completed vector with all values
+*/
 std::vector <int> Scenariocreator::maxmintoVector(std::string netType, std::string param)
 	{
 		std::vector <int> rawVector=getParameter(netType, param);
@@ -185,6 +224,13 @@ std::vector <int> Scenariocreator::maxmintoVector(std::string netType, std::stri
 
 	}
 
+/**
+	\brief loads document
+
+	Loads the document and stores the doc object in a class variable.
+
+	@return zero if successfull, -1 if not.
+*/
 int Scenariocreator::loadDocument()
 {
 	if (!doc.load_file("elitism_ac.xml"))
@@ -194,14 +240,23 @@ int Scenariocreator::loadDocument()
 	return 0;
 }
 
+/**
+	\brief parses the algorithm method and stores in in class variable.
+
+*/
 void Scenariocreator::getMethod()
 {
 	algorithm_method=doc.child("scenarios").child("algorithm").attribute("method").value();
 
 }
 
+/**
+	\brief returns the parameter with raw values and determines which part of the xml file should be read.
 
-
+	@param[in]     netType determines which pugichild is choosen.
+	@param[in]     param determines which value has to be parsed.
+	@return is the vector with the range and step.
+*/
 std::vector <int> Scenariocreator::getParameter(std::string netType, std::string param)
 	{
 		if (netType=="physicalnet")
@@ -230,7 +285,16 @@ std::vector <int> Scenariocreator::getParameter(std::string netType, std::string
 		}
 	}
 
+/**
+	\brief parses the parameters of the XML file.
 
+	The function parses all parameters and stores it in a vector.
+	The arguments in the vector are min, max and the step.
+
+	@param[in]     tools is the pugiobject for reading the file
+	@param[in]     param determines which value has to be parsed
+	@return is the vector with the range and step.
+*/
 std::vector <int> Scenariocreator::getParameterVector(pugi::xml_node tools, std::string param)
 {
 

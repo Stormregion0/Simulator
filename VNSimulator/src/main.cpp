@@ -1,7 +1,19 @@
 #include <iostream>                                     // Ein- und Ausgabebibliothek
 #include <string>
 #include "scenariocreator/scenariocreator.hpp"
-
+/*! \mainpage My Personal Index Page
+ *  \author    Alexander Kosch
+ *  \version   0.1alpha
+ *  \date      2015
+ *  \section intro_sec Introduction
+ *
+ *  This is the introduction.
+ *
+ *  \section install_sec Installation
+ *
+ *  Not ready yet.
+ *
+ */
 int main(int argc, char *argv[]){                                             // Hauptfunktion
 
     std::cout << "Anzahl Argumente: " << argc <<std::endl;
