@@ -4,7 +4,7 @@
 
 #include <iostream>
 #include "scenariocreator.hpp"
-#include "../pugixml.hpp"
+#include "../pugixml/pugixml.hpp"
 #include "../demandcreator/demandcreator.hpp"
 #include <string>
 #include <typeinfo>
