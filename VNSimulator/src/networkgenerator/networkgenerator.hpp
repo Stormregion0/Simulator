@@ -14,8 +14,20 @@ public:
 	void generateRandomNetwork();
 };
 
+class VirtualNetworkGenerator : NetworkGenerator
+{
+public:
+   void generateObject();
+   void randomNodeData();
+   void randomNodeCPU();
+   void randomNodeMEM();
+   void randomNodeType();
+};
 
+class PhysicalNetWorkGenerator : NetworkGenerator
+{
 
+};
 
 
 #endif /* SRC_NETWORKGENERATOR_HPP_ */

@@ -8,3 +8,7 @@
 
 
 
+Network::Network()//Konstruktor
+{
+
+}

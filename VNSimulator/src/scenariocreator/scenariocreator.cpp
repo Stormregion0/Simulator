@@ -6,6 +6,7 @@
 #include "scenariocreator.hpp"
 #include "../pugixml/pugixml.hpp"
 #include "../demandcreator/demandcreator.hpp"
+#include "../test.hpp"
 #include <string>
 #include <typeinfo>
 #include <vector>
@@ -43,7 +44,9 @@ void Scenariocreator::generateScenario(std::vector<int> parameters)
 
 		std::cout<<"Demands[0].testdemand: "<<demands[0].testdemand<<std::endl;
 
+		TestingGraph gt;
 
+		gt.koschtest();
 	}
 
 /**
